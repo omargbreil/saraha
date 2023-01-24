@@ -41,4 +41,4 @@ import mongoose from "mongoose";
         timestamps:true
     })
 
-export const userModel = mongoose.model( "user",userSchema);
+export const userModel= mongoose.model( "user",userSchema);

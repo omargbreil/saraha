@@ -4,9 +4,11 @@ import  express  from "express";
 import cors from "cors";
 import * as routers from "./modules/routers.js"
 import {connection} from "./DB/connection.js"
+import schedule from "node-schedule"
 const server = express();
 server.use(express.json());
 server.use(cors());
+
 server.use(`/v1/uploads` , express.static('./uploads'))
 
 
@@ -20,3 +22,8 @@ server.get("*" , (req,res)=>
 })
 server.listen(process.env.port, ()=>console.log("server running"));
 connection();
+
+const job = schedule.scheduleJob("1 22 17 * * *", function () 
+{
+    console.log("job");   
+})

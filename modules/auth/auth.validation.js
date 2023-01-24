@@ -2,6 +2,7 @@ import joi from "joi";
 
 export const signUpSchema =
 {
+    
     body:joi.object().required().keys(
         {
             user_name:joi.string().min(2).max(10).required(),
@@ -10,4 +11,5 @@ export const signUpSchema =
             cpassword:joi.valid(joi.ref("password")).required()
         }
     )
+    
 }

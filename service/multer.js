@@ -1,6 +1,4 @@
 import multer from "multer";
-import { nanoid } from "nanoid";
-import fs from 'fs';
 import path from "path";
 import {fileURLToPath} from 'url';
 

@@ -10,8 +10,7 @@ const signup = async(req,res)=>
     {
 
         let {user_name,email , password , cpassword}= req.body; 
-        if(password===cpassword)
-       {
+       
            
            const foundUser = await userModel.findOne({email});
 
@@ -31,7 +30,7 @@ const signup = async(req,res)=>
                 id : addedUser._id
             },process.env.tokenEmailKey ,
             {
-                expiresIn:60
+                expiresIn:60 
             })
             let refreshToken = jwt.sign(
                 {
@@ -55,12 +54,9 @@ const signup = async(req,res)=>
             sendEmail(email , confirmEmail);
             
             res.json({message:"success" , addedUser});
-        }
+        
 
         
-       }else
-       {
-        res.json({message:"password not matched"})
        }
     } catch (error) 
     {
